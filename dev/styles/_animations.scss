@@ -1,0 +1,12 @@
+// animation set on body in _general.scss
+@keyframes sunset {
+    0% {
+        background-position-y: 0  
+    }
+    50% {
+        background-position-y: -4820px;
+    }
+    100% {
+        background-position-y: 0px;
+    }
+}
