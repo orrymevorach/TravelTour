@@ -1,12 +1,11 @@
 .clock {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background-color: transparent;
     border-radius: 50%;
     border: 10px solid white;
-    margin: 0 auto;
+    margin: 50px 50px 0px auto;
     position: relative;
-    margin-top: 15%;
 }
 
 .circle {
@@ -35,6 +34,7 @@
 
 .seconds {
     width: 49%;
+    height: 2px;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 
 }

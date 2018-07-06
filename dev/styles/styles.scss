@@ -1,12 +1,12 @@
 @import './setup';
-// @import './animations';
-// @import './clock';
+@import './animations';
+@import './clock';
 
 body {
-    background: linear-gradient(to bottom,  #171b5d,#171b5d,#171b5d,#171b5d, #3b369b, #6f61cd, #e689c1, #ff9c95, #ffd883, #8af4f8, #ffd883, #fcb10e);
-    background-size: 100% 7500%;
-    background-repeat: no-repeat;
-    animation: sunset 20s linear infinite;
+    background: linear-gradient(to bottom, #171b5d, #171b5d, #3b369b, #6f61cd, #fdf3dd, #ffedc7, #b0fcff, #8af4f8, #b0fcff, #ffedc7,  #ff9c95, #e689c1, #6f61cd, #3b369b,#171b5d, #171b5d);
+    background-size: 100% 3500%;
+    // background-position-y: 25%; 
+    // animation: sunset 60s linear infinite;
 }
 
 img {
@@ -17,67 +17,4 @@ img {
     opacity: 0.7;
 }
 
-@keyframes sunset {
-    0% {
-        background-position-y: 0px  
-    }
-    50% {
-        background-position-y: -17000px;
-    }
-    100% {
-        background-position-y: 0px;
-    }
-}
 
-.top-container {
-    display: flex;
-}
-
-.clock {
-    width: 200px;
-    height: 200px;
-    background-color: transparent;
-    border-radius: 50%;
-    border: 10px solid white;
-    margin: 50px 50px 0px auto;
-    position: relative;
-}
-
-.circle {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -30%);
-}
-
-.seconds,
-.minutes,
-.hours {
-    height: 4px;
-    background-color: white;
-    transform-origin: 0%;
-    transform: rotate(-90deg);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transition: all 0.3s;
-}
-
-.seconds {
-    width: 49%;
-    height: 2px;
-    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
-
-}
-
-.minutes {
-    width: 46%;
-}
-
-.hours {
-    width: 30%;
-}

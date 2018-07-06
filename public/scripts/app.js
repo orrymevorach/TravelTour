@@ -2,13 +2,15 @@
 
 var app = {};
 
-app.getTime = function () {
+app.clock = function () {
+
     // creating an object with the time details
     var time = new Date();
 
     // creating a seconds variable
     // converting the variable into degrees
     var seconds = time.getSeconds();
+
     var secondsDegrees = seconds * 6 - 90;
 
     // the rotation of the seconds hall will correspond to the secondsDegrees variable
@@ -30,31 +32,62 @@ app.getTime = function () {
     $('.minutes').css({ transform: 'rotate(' + minutesDegrees + 'deg' });
 
     // creating an hours variable
-    var hours = time.getHours();
+    var twentyFourHours = time.getHours(); // minutes in 24Hour clock
 
+    var twelveHours = 0;
     // accounting for military time
-    if (hours > 12) {
-        hours = hours - 12;
+    if (twentyFourHours > 12) {
+        twelveHours = twentyFourHours - 12;
+    } else if (twentyFourHours <= 12) {
+        twelveHours = twentyFourHours;
     }
 
     // a variable that accounts for the added minutes in an hour
-    var hoursMinutesDegrees = minutes * 6 / 12;
+    var hoursPlusMinutesDegrees = minutes * 6 / 12;
 
     // an hours variable
-    var hoursDegrees = hours * 30 - 90 + hoursMinutesDegrees;
+    var hoursDegrees = twelveHours * 30 - 90 + hoursPlusMinutesDegrees;
 
-    // the rotation of the seconds hall will correspond to the secondsDegrees variable
+    // the rotation of the seconds hand will correspond to the secondsDegrees variable
     $('.hours').css({ transform: 'rotate(' + hoursDegrees + 'deg' });
+};
 
-    var animationStartTime = (hoursDegrees + 90) / 360 * 86400;
+app.skyAnimation = function () {
 
-    // set starting % to that number
-    // 86 400 seconds in a day
-    // $('body').css({animation: `sunset 86400s linear -${animationStartTime}s infinite`})
+    var time = new Date();
+    var minutes = time.getMinutes();
+    // let hours = time.getHours(); 
+
+    var minutesPerentage = minutes / 60;
+
+    // hours = hours + minutesPerentage
+
+    var hours = 20.9;
+
+    var sunriseStartingPoint = hours * 60 * 60 - 5 * 60 * 60;
+    var daylightStartingPoint = hours * 60 * 60 - 7 * 60 * 60;
+    var sunsetStartingPoint = hours * 60 * 60 - 19 * 60 * 60;
+
+    if (hours >= 21 || hours <= 4) {
+        $('body').css({ 'background-color': '#171b5d', 'animation': 'none' });
+    } else if (hours >= 5 && hours < 7) {
+        // 2 hours
+        $('body').css({ animation: 'sunrise 7200s linear -' + sunriseStartingPoint + 's infinite' });
+    } else if (hours >= 7 && hours < 19) {
+        // 13 hours
+        $('body').css({ animation: 'daylight 46800s linear -' + daylightStartingPoint + 's infinite' });
+    } else if (hours >= 19 < 21) {
+        // 2 hours
+        $('body').css({ animation: 'sunset 10800s linear -' + sunsetStartingPoint + 's infinite' });
+    }
+    console.log(hours);
 };
 
 app.init = function () {
-    setInterval(app.getTime, 1000);
+    app.clock();
+    app.skyAnimation();
+    setInterval(app.clock, 1000);
+    setInterval(app.skyAnimation, 300000);
 };
 
 $(document).ready(function () {
