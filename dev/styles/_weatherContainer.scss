@@ -1,0 +1,73 @@
+.weather-container {
+    border-bottom: 3px solid white;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    font-size: 18px;
+    text-align: center;
+    padding: 20px 0;
+    p, svg {
+        margin: 0;
+    }
+}
+
+.conditions-container {
+    text-align: center;
+}
+
+.conditions-container .container-bottom {
+    margin-top: -40px;
+}
+
+.conditions {
+    text-transform: capitalize;
+}
+
+.conditions-icon img {
+    width: 50px;
+    margin: -18px 0 19px 0;
+}
+
+.temperature-value {
+    display: flex;
+    justify-content: center;
+}
+
+.celcius-text {
+    font-size: 14px;
+    position: relative;
+    padding-left: 10px;
+}
+
+.celcius-text:after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    top: 3px;
+    right: 8px;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.humidity {
+    text-align: center;
+}
+
+.km-h {
+    font-size: 12px;
+    position: relative;
+    top: -13px;
+}
+
+.container-bottom {
+    padding-top: 10px;
+    font-size: 30px;
+}
+
+
+

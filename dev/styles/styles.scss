@@ -1,20 +1,110 @@
 @import './setup';
 @import './animations';
 @import './clock';
+@import './weatherContainer';
 
 body {
-    background: linear-gradient(to bottom, #171b5d, #171b5d, #3b369b, #6f61cd, #fdf3dd, #ffedc7, #b0fcff, #8af4f8, #b0fcff, #ffedc7,  #ff9c95, #e689c1, #6f61cd, #3b369b,#171b5d, #171b5d);
-    background-size: 100% 3500%;
+    // background: linear-gradient(to bottom, #171b5d, #171b5d, #3b369b, #6f61cd, #fdf3dd, #ffedc7, #b0fcff, #8af4f8, #b0fcff, #ffedc7,  #ff9c95, #e689c1, #6f61cd, #3b369b,#171b5d, #171b5d);
+
+    background: linear-gradient(to bottom, #171b5d, #171b5d, #3b369b, #6f61cd, #fdf3dd, #b0fcff, #8af4f8, #8af4f8, #8af4f8, #b0fcff, #ffedc7, #fdb0aa,#6f61cd, #3b369b, #171b5d, #171b5d);
+
+    background-size: 100% 900vh;
     // background-position-y: 25%; 
     // animation: sunset 60s linear infinite;
 }
 
-img {
+.toronto-image {
     width: 100%;
-    height: 400px;
+    height: 300px;
     position: absolute;
     bottom: 0;
     opacity: 0.7;
 }
+
+.rain-image {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: url(../../rain.png);
+    display: none;
+    animation: rain 1s linear infinite;
+}
+
+.rain-image:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    animation: lightning 10s linear infinite;
+    opacity: 0;
+}
+
+.form {
+    position: absolute;
+    top: 150px;
+    right: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    z-index: 20;
+    h2 {
+        color: white;
+        margin: 0;
+        margin-top: 10px;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 35px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+        input[type=submit],
+        input[type=reset] {
+            border: 1px solid white;
+            background: none;
+            color: white;
+            padding: 5px 15px;
+            margin: 0 10px;
+        }
+        input[type=submit] {
+            margin: 15px 0 10px 0;
+        }
+        select {
+            background: none;
+            color: white;
+            cursor: pointer;
+            appearance: none;
+            text-align: center;
+            padding: 5px 25px 5px 0 ;
+            width: 170px;
+            position: relative;
+            margin: 0;
+            margin-left: -10px;
+            border: 1px solid white;
+        }
+        .fa-sort-down {
+            color: white;
+            position: relative;
+            top: 20px;
+            left: 55px;
+        }
+        .rain-checkbox {
+            color: white;
+            margin-top: 10px;;
+        }
+    }
+}
+
+
+
+
+
 
 

@@ -13,15 +13,45 @@
         background-position-y: 25%;  
     }
     100% {
-        background-position-y: 53%;
+        background-position-y: 35%;
     }
 }
 
 @keyframes sunset {
     0% {
-        background-position-y: 54%;  
+        background-position-y: 36%;  
     }
     100% {
         background-position-y: 90%;
+    }
+}
+
+@keyframes rain {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -20% 100%;
+    }
+}
+
+@keyframes lightning {
+    0% {
+        opacity: 0;
+    }
+    19% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    21% {
+        opacity: 0;
+    }
+    22% {
+        opacity: 1;
+    }
+    23% {
+        opacity: 0;
     }
 }
